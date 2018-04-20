@@ -53,7 +53,6 @@ debug.test
 /packaging/**/*.deb
 
 # Ignore OSX indexing
-.DS_Store
 
 /vendor/**/*.py
 /vendor/**/*.xml
@@ -62,5 +61,3 @@ debug.test
 /vendor/**/.editorconfig
 /vendor/**/appengine*
 *.orig
-
-.idea
