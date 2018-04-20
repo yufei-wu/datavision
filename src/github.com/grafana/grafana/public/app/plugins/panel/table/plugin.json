@@ -1,0 +1,19 @@
+{
+  "type": "panel",
+  "name": "表格",
+  "id": "table",
+
+  "info": {
+    "description": "表格面板",
+    "author": {
+      "name": "DataVision Project",
+      "url": "https://www.datavision.com"
+},
+    "logos": {
+      "small": "img/icn-table-panel.svg",
+      "large": "img/icn-table-panel.svg"
+    },
+    "version": "5.0.0"
+  }
+}
+

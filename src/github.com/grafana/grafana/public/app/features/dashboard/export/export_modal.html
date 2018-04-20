@@ -1,0 +1,27 @@
+
+<!-- <p> -->
+<!-- 	Exporting will export a cleaned sharable dashboard that can be imported -->
+<!-- 	into another Grafana instance. -->
+<!-- </p> -->
+
+<div class="share-modal-header">
+	<div class="share-modal-big-icon">
+		<i class="fa fa-cloud-upload"></i>
+	</div>
+	<div>
+		<p class="share-modal-info-text">
+      将仪表板导出为JSON文件。 导出者将对仪表板的数据源进行模板化，以方便其他人导入和重用。
+		</p>
+
+		<div class="gf-form-button-row">
+			<button type="button" class="btn gf-form-btn width-10 btn-success" ng-click="ctrl.save()">
+				<i class="fa fa-save"></i> 保存到文件
+			</button>
+			<button type="button" class="btn gf-form-btn width-10 btn-secondary" ng-click="ctrl.saveJson()">
+				<i class="fa fa-file-text-o"></i> 查看JSON
+			</button>
+			<a class="btn btn-link" ng-click="ctrl.dismiss()">取消</a>
+		</div>
+
+	</div>
+</div>

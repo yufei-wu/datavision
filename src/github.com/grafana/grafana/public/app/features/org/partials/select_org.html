@@ -1,0 +1,25 @@
+<page-header model="navModel"></page-header>
+
+<div class="page-container page-body">
+
+	<div class="signup">
+		<div class="login-form">
+
+			<div class="modal-tagline">
+        由于公开邀请您已被添加到其他组织!
+
+				请您选择您相当所想要使用的组织(您可以在以后的任何时间来修改) <br>
+			</div>
+
+			<div style="display: inline-block; width: 400px; margin: 30px 0">
+				<div ng-repeat="org in orgs">
+					<a ng-click="setUsingOrg(org)" class="btn btn-success">
+						{{org.name}} ({{org.role}})
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,21 @@
+<div class="modal-body">
+	<div class="modal-header">
+		<h2 class="modal-header-title">
+			<i class="fa fa-cloud-download"></i>
+			<span class="p-l-1">更新插件</span>
+		</h2>
+
+		<a class="modal-header-close" ng-click="dismiss();">
+			<i class="fa fa-remove"></i>
+		</a>
+	</div>
+
+	<div class="modal-content">
+		<div class="gf-form-group">
+			<p>在命令行上输入以下内容进行更新 {{plugin.name}}.</p>
+			<pre><code>datavision-cli插件更新 {{plugin.id}}</code></pre>
+			<span class="small">查看 {{plugin.name}} 在 <a href="https://www.dataconnect.com/plugins/{{plugin.id}}">dataconnect.com</a> 上的README和changelog. 如果您无法访问命令行，请咨询您的DataVision管理员。</span>
+		</div>
+		<p class="pluginlist-none-installed"><img class="pluginlist-inline-logo" src="public/img/grafana_icon.svg"><strong>重要提示</strong>: 要一次更新所有插件，请在命令行上键入<code class =“code-small”> datavision-cli plugins update-all </code>。</div>
+	</div>
+</div>

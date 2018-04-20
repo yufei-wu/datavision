@@ -1,0 +1,54 @@
+<page-header model="ctrl.navModel"></page-header>
+
+<div class="page-container page-body">
+	<table class="filter-table form-inline">
+		<thead>
+			<tr>
+				<th>名称</th>
+				<th>值</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>所有仪表盘</td>
+				<td>{{ctrl.stats.dashboards}}</td>
+			</tr>
+			<tr>
+				<td>所有用户</td>
+				<td>{{ctrl.stats.users}}</td>
+			</tr>
+			<tr>
+				<td>活跃的用户 (最近14天)</td>
+				<td>{{ctrl.stats.activeUsers}}</td>
+			</tr>
+			<tr>
+				<td>所有组织</td>
+				<td>{{ctrl.stats.orgs}}</td>
+			</tr>
+			<tr>
+				<td>所有数据源</td>
+				<td>{{ctrl.stats.datasources}}</td>
+			</tr>
+			<tr>
+				<td>所有播放列表</td>
+				<td>{{ctrl.stats.playlists}}</td>
+			</tr>
+			<tr>
+				<td>所有快照</td>
+				<td>{{ctrl.stats.snapshots}}</td>
+			</tr>
+			<tr>
+				<td>所有仪表盘标签</td>
+				<td>{{ctrl.stats.tags}}</td>
+			</tr>
+			<tr>
+				<td>所有喜爱的仪表盘</td>
+				<td>{{ctrl.stats.stars}}</td>
+			</tr>
+      <tr>
+				<td>所有的警告</td>
+				<td>{{ctrl.stats.alerts}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

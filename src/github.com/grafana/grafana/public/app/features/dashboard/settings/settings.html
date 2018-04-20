@@ -1,0 +1,124 @@
+<aside class="dashboard-settings__aside">
+	<h2 class="dashboard-settings__aside-header">
+		<i class="fa fa-cog"></i>
+		配置
+	</h2>
+
+	<a href="{{::section.url}}" class="dashboard-settings__nav-item" ng-class="{active: ctrl.viewId === section.id}" ng-repeat="section in ctrl.sections">
+    <i class="{{::section.icon}}"></i>
+		{{::section.title}}
+	</a>
+
+	<div class="dashboard-settings__aside-actions">
+    <button class="btn btn-success" ng-click="ctrl.saveDashboard()" ng-show="ctrl.canSave">
+			<i class="fa fa-save"></i> 保存
+		</button>
+		<button class="btn btn-inverse" ng-click="ctrl.openSaveAsModal()" ng-show="ctrl.canSaveAs">
+			<i class="fa fa-copy"></i>
+			保存为...
+		</button>
+		<button class="btn btn-danger" ng-click="ctrl.deleteDashboard()" ng-show="ctrl.canDelete">
+			<i class="fa fa-trash"></i>
+			删除
+		</button>
+	</div>
+</aside>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'settings'">
+	<h3 class="dashboard-settings__header">
+		通用
+	</h3>
+
+	<div class="gf-form-group">
+		<div class="gf-form">
+			<label class="gf-form-label width-7">名称</label>
+			<input type="text" class="gf-form-input width-30" ng-model='ctrl.dashboard.title'></input>
+		</div>
+		<div class="gf-form">
+			<label class="gf-form-label width-7">描述</label>
+			<input type="text" class="gf-form-input width-30" ng-model='ctrl.dashboard.description'></input>
+		</div>
+		<div class="gf-form">
+			<label class="gf-form-label width-7">
+				标签
+				<info-popover mode="right-normal">Enter键来添加一个标签</info-popover>
+			</label>
+			<bootstrap-tagsinput ng-model="ctrl.dashboard.tags" tagclass="label label-tag" placeholder="add tags">
+			</bootstrap-tagsinput>
+		</div>
+		<folder-picker initial-title="ctrl.dashboard.meta.folderTitle"
+									 initial-folder-id="ctrl.dashboard.meta.folderId"
+									 on-change="ctrl.onFolderChange($folder)"
+									 enable-create-new="true"
+									 is-valid-selection="true"
+									 label-class="width-7">
+		</folder-picker>
+		<gf-form-switch class="gf-form" label="Editable" tooltip="Uncheck, then save and reload to disable all dashboard editing" checked="ctrl.dashboard.editable" label-class="width-7">
+		</gf-form-switch>
+	</div>
+
+	<gf-time-picker-settings dashboard="ctrl.dashboard"></gf-time-picker-settings>
+
+	<h5 class="section-heading">面板选项</h5>
+	<div class="gf-form">
+		<label class="gf-form-label width-11">
+			图表提示
+			<info-popover mode="right-normal">
+				切换选项快捷键: CTRL+O or CMD+O
+			</info-popover>
+		</label>
+		<div class="gf-form-select-wrapper">
+			<select ng-model="ctrl.dashboard.graphTooltip" class='gf-form-input' ng-options="f.value as f.text for f in [{value: 0, text: 'Default'}, {value: 1, text: 'Shared crosshair'},{value: 2, text: 'Shared Tooltip'}]"></select>
+		</div>
+	</div>
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'annotations'" ng-include="'public/app/features/annotations/partials/editor.html'">
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'templating'"  ng-include="'public/app/features/templating/partials/editor.html'">
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'links'" >
+	<dash-links-editor dashboard="ctrl.dashboard"></dash-links-editor>
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'versions'" >
+	<gf-dashboard-history dashboard="dashboard"></gf-dashboard-history>
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'view_json'" >
+	<h3 class="dashboard-settings__header">查看JSON</h3>
+
+	<div class="gf-form">
+		<code-editor content="ctrl.json" data-mode="json" data-max-lines=30 ></code-editor>
+	</div>
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'permissions'" >
+  <dashboard-permissions ng-if="ctrl.dashboard && !ctrl.hasUnsavedFolderChange"
+    dashboardId="ctrl.dashboard.id"
+    backendSrv="ctrl.backendSrv"
+    folder="ctrl.getFolder()"
+  />
+  <div ng-if="ctrl.hasUnsavedFolderChange">
+    <h5>您已更改文件夹，请保存以查看权限.</h5>
+  </div>
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === '404'">
+  <h3 class="dashboard-settings__header">配置视图没有找到</h3>
+
+  <div>
+    <h5>配置页面没有找到 或者 您没有权限访问配置页面</h5>
+  </div>
+</div>
+
+<div class="dashboard-settings__content" ng-if="ctrl.viewId === 'make_editable'">
+  <h3 class="dashboard-settings__header">可编辑</h3>
+
+  <button class="btn btn-success" ng-click="ctrl.makeEditable()">
+    可编辑
+  </button>
+</div>
+

@@ -1,0 +1,18 @@
+{
+  "type": "panel",
+  "name": "文本",
+  "id": "text",
+
+  "info": {
+    "author": {
+      "name": "DataVision Project",
+      "url": "https://www.dataconnect.com"
+},
+    "logos": {
+      "small": "img/icn-text-panel.svg",
+      "large": "img/icn-text-panel.svg"
+    },
+    "version": "5.0.0"
+  }
+}
+
