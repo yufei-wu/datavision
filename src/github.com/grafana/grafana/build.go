@@ -292,7 +292,7 @@ func createPackage(options linuxPackageOptions) {
 		"--config-files", options.etcDefaultFilePath,
 		"--config-files", options.systemdServiceFilePath,
 		"--after-install", options.postinstSrc,
-		"--name", "grafana",
+		"--name", "datavision",
 		"--version", linuxPackageVersion,
 		"-p", "./dist",
 	}
