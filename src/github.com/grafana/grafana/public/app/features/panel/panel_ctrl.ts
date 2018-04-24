@@ -99,7 +99,7 @@ export class PanelCtrl {
 
   initEditMode() {
     this.editorTabs = [];
-    this.addEditorTab('General', 'public/app/partials/panelgeneral.html');
+    this.addEditorTab('通用配置', 'public/app/partials/panelgeneral.html');
     this.editModeInitiated = true;
     this.events.emit('init-edit-mode', null);
 
@@ -201,7 +201,7 @@ export class PanelCtrl {
     }
 
     menu.push({
-      text: '面板 JSON',
+      text: '面板JSON',
       click: 'ctrl.editPanelJson(); dismiss();',
     });
 
